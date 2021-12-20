@@ -18,6 +18,7 @@ const SquareButton = styled.div`
     font-size: 28px;
     text-align: center;
     border-radius: 5px;
+    cursor: pointer;
 `;
 
 const Select = styled.select`
@@ -33,6 +34,7 @@ const Select = styled.select`
     color: #fff;
     padding-left: 6px;
     margin-bottom: 7px;
+    cursor: pointer;
     & > option{
         background-color: #005050;
         color: #fff;
@@ -88,6 +90,7 @@ const Button = styled.button`
     border-radius: 10px;
     color: #fff;
     margin-top: ${props => props.marginTop || "0px"};
+    cursor: pointer;
 `;
 
 export {

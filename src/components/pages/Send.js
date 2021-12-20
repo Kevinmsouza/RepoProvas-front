@@ -87,7 +87,7 @@ export default function Send() {
                     required
                     type="text"
                     placeholder="Nome ex: 2020.01" 
-                    pattern={/^[0-9]{4}.*/}
+                    pattern="^[0-9]{4}"
                     title="Comece sempre com o ano da prova!"
                     value={name}
                     onChange={(e) => setName(e.target.value)}

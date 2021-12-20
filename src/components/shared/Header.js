@@ -5,8 +5,8 @@ export default function Header() {
     let history = useHistory();
 
     return(
-        <HeaderStyle onClick={() => history.push('/')}>
-            RepoProvas
+        <HeaderStyle >
+            <h1 onClick={() => history.push('/')}>RepoProvas</h1>
         </HeaderStyle>
     )
 }
@@ -25,4 +25,8 @@ const HeaderStyle = styled.header`
     position: fixed;
     left: 0;
     top: 0;
+    cursor: initial;
+    & h1 {
+        cursor: pointer;
+    }
 `;

@@ -57,7 +57,6 @@ export default function Send() {
             teacherId: Number(teacherId),
             url
         };
-        console.log(body)
         postTest(body)
             .then(res => {
                 sendAlert({

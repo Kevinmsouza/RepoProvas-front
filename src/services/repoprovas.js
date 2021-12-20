@@ -10,12 +10,22 @@ function getSubjects() {
     return axios.get(`${BASE_URL}/subjects`);
 }
 
+function getTeachers() {
+    return axios.get(`${BASE_URL}/teachers`);
+}
+
 function postTest(body) {
     return axios.post(`${BASE_URL}/tests`, body);
+}
+
+function getTests() {
+    return axios.get(`${BASE_URL}/tests`);
 }
 
 export {
     getCategories,
     getSubjects,
+    getTeachers,
     postTest,
+    getTests,
 }

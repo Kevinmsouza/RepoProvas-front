@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# **RepoProvas**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### **About the project**
+[view demo](https://kms-repoprovas.vercel.app/)
 
-In the project directory, you can run:
+<br />
+<p align="center">
+    <img src="https://cdn.discordapp.com/attachments/285125331751534602/922544031718842368/unknown.png" width="250px">
+<p>
 
-### `npm start`
+RepoProvas is a single page application designed with a mobile first approach.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Its objective is to store old college exams. Users can send their old exams anonymously to help other students prepair.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+When a user enters the site, he can decide between viewing old exams or submitting a exam. If he decide to see old exams there are a fell filters to easy the search. If he decide to send a exam, there are a form with selects to facilitate the process.
 
-### `npm test`
+<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Built with**
 
-### `npm run build`
+- [React JS](https://reactjs.org/)
+- [Node JS](https://nodejs.org/en/)
+- [Typescript](https://www.typescriptlang.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ <br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Getting Started**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Prerequisites**
 
-### `npm run eject`
+- npm
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **Installation**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1.  Clone the backend
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+git clone https://github.com/Kevinmsouza/RepoProvas-back.git
+```
 
-## Learn More
+2. Clone the frontend **in another folder**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+git clone https://github.com/Kevinmsouza/RepoProvas-front.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Install frontend and dependencies executing command **in both folders**
 
-### Code Splitting
+```sh
+npm i
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Create a .env file in backend folder (root) with following variables ( example values )
 
-### Analyzing the Bundle Size
+```sh
+DATABASE_URL=postgres://DB_USER:DB_PASSWORD@DB_HOST:DB_PORT/DB_DATABASE
+PORT=4000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. Create a postgres database and fill .env with database credentials
 
-### Making a Progressive Web App
+   <br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+6. Run (copy & paste) the dump.sql statements in database
+   <br />
+   <br />
 
-### Advanced Configuration
+### **How to run**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Start backend server
 
-### Deployment
+```sh
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. Start frontend
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```sh
+npm start
+```

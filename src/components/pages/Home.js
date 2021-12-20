@@ -1,12 +1,15 @@
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
 import { SquareButton, Title } from "../shared/styledComponents";
+
 export default function Home() {
+    let history = useHistory();
 
     return (
         <HomeStyle>
             <Title>Bem vindo! Selecione o que procura:</Title>
-            <SquareButton>Ver provas antigas</SquareButton>
-            <SquareButton>Enviar uma prova</SquareButton>
+            <SquareButton onClick={() => history.push('/see')}>Ver provas antigas</SquareButton>
+            <SquareButton onClick={() => history.push('/send')}>Enviar uma prova</SquareButton>
         </HomeStyle>
     );
 }

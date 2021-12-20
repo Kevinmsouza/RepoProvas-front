@@ -64,6 +64,9 @@ const Input = styled.input`
     &::placeholder{
         color: #777777; 
     }
+    &:disabled{
+        opacity: 0.7;
+    }
     &:focus{
         outline: none;
     }

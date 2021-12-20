@@ -3,7 +3,7 @@ import { Title } from "./styledComponents";
 import Test from "./Test";
 
 export default function Category({name, tests, sortBy, target}) {
-    tests = tests.filter(test => sortBy == 0 ? test.subject.id == target : test.teacher .id == target )
+    tests = tests.filter(test => sortBy == 0 ? test.subject.id == target : test.teacher.id == target )
 
     if(!tests.length) return ''
 

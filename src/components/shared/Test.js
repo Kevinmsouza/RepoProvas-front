@@ -24,6 +24,7 @@ const TestStyle = styled.div`
     background-color: #005050;
     height: 80px;
     margin: 5px;
+    border-radius: 5px;
 `;
 
 const HalfBox = styled.div`

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getSubjects, getTeachers, getTests } from "../../services/repoprovas";
+import { getSubjects, getTeachers, getTerms, getTests } from "../../services/repoprovas";
 import { sendAlert } from "../shared/alerts";
 import Category from "../shared/Category";
 import { Select, Title } from "../shared/styledComponents";
 
 export default function See() {
-    const [sortBy, setSortBy] = useState(0);
-    const [target, setTarget] = useState(0);
+    const [sortBy, setSortBy] = useState('0');
+    const [target, setTarget] = useState('0');
+    const [term, setTerm] = useState('0')
     const [options, setOptions] = useState({});
-    const [isLoading, setIsloading] = useState(false);
 
     useEffect(() => {
         getOptions();
@@ -24,10 +24,21 @@ export default function See() {
                     .then(res => {
                         newOptions = {...newOptions, teachers: res.data}
                         setOptions(newOptions);
-                        getTests()
+                        getTerms()
                         .then(res => {
-                            newOptions = {...newOptions, categories: res.data}
+                            newOptions = {...newOptions, terms: res.data}
                             setOptions(newOptions);
+                            getTests()
+                            .then(res => {
+                                newOptions = {...newOptions, categories: res.data}
+                                setOptions(newOptions);
+                            })
+                            .catch(err => {
+                                sendAlert({
+                                    type: "error",
+                                    title: "Ocorreu um erro!"
+                                })
+                            });
                         })
                         .catch(err => {
                             sendAlert({
@@ -35,6 +46,7 @@ export default function See() {
                                 title: "Ocorreu um erro!"
                             })
                         });
+                        
                     })
                     .catch(err => {
                         sendAlert({
@@ -59,37 +71,61 @@ export default function See() {
             <Select 
                 value={sortBy} 
                 onChange={(e) => setSortBy(e.target.value)}
-                disabled={isLoading}
             >
-                <option value={0}>Disciplinas</option>
-                <option value={1}>Professores</option>
+                <option value={0}>Por Disciplinas</option>
+                <option value={1}>Por Professores</option>
             </Select>
-            <Select 
-                value={target} 
-                onChange={(e) => setTarget(e.target.value)}
-                disabled={isLoading}
-            >
-                <option value={0}></option>
-                {sortBy == 0 ?
-                    options.subjects.map((option) => 
+            {sortBy === '0' &&
+                <Select 
+                    value={term} 
+                    onChange={(e) => setTerm(e.target.value)}
+
+                >
+                    <option value={0}>Periodo</option>
+                    {options.terms.map((option) => 
                         <option 
                             key={option.id} 
                             value={option.id}
                         >
-                            {option.name} | {option.testsQtd} provas
+                            {option.name}
                         </option>
-                    )
+                    )}
+                </Select>
+            }
+
+                {sortBy === '0' ?
+                    term !== '0' &&
+                    <Select 
+                        value={target} 
+                        onChange={(e) => setTarget(e.target.value)}
+                    >
+                        <option value={0}>Disciplina</option>
+                        {options.subjects.filter(subject => subject.term.id == term).map((option) => 
+                            <option 
+                                key={option.id} 
+                                value={option.id}
+                            >
+                                {option.name} | {option.testsQtd} provas
+                            </option>
+                        )}
+                    </Select>
                     :
-                    options.teachers.map((option) => 
-                        <option 
-                            key={option.id} 
-                            value={option.id}
-                        >
-                            {option.name} | {option.testsQtd} provas
-                        </option>
-                    )
+                    <Select 
+                        value={target} 
+                        onChange={(e) => setTarget(e.target.value)}
+                    >
+                        <option value={0}>Professor(a)</option>
+                        {options.teachers.map((option) => 
+                            <option 
+                                key={option.id} 
+                                value={option.id}
+                            >
+                                {option.name} | {option.testsQtd} provas
+                            </option>
+                        )}
+                    </Select>
                 }
-            </Select>
+            
             <TestsContainer>
                 {options.categories.map(option => (
                     <Category 

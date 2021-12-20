@@ -10,6 +10,10 @@ function getSubjects() {
     return axios.get(`${BASE_URL}/subjects`);
 }
 
+function getTerms() {
+    return axios.get(`${BASE_URL}/terms`);
+}
+
 function getTeachers() {
     return axios.get(`${BASE_URL}/teachers`);
 }
@@ -28,4 +32,5 @@ export {
     getTeachers,
     postTest,
     getTests,
+    getTerms,
 }
